@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.luke.doubancrawler.dal.mapper.DoubanMapper" >
+
+    <insert id="insertMovie" parameterType="com.luke.doubancrawler.dal.model.MovieBean" >
+        insert into movie (
+        `movie`, `type`, `grade`, `country`, `language`, `people`,
+        `star5`, `star4`, `star3`, `star2`, `star1`, `date`, `summary`)
+        values (
+        #{movie,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{grade,jdbcType=FLOAT}, #{country,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{people,jdbcType=BIGINT},
+        #{star5,jdbcType=BIGINT}, #{star4,jdbcType=BIGINT}, #{star3,jdbcType=BIGINT}, #{star2,jdbcType=BIGINT}, #{star1,jdbcType=BIGINT}, #{date,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertReview" parameterType="com.luke.doubancrawler.dal.model.ReviewBean" >
+        insert into short_review (
+        `movie`, `text`, `status`,
+        `rank`, `agree`, `date`)
+        values (
+        #{movie,jdbcType=VARCHAR}, #{text,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+        #{rank,jdbcType=BIGINT}, #{agree,jdbcType=BIGINT}, #{date,jdbcType=VARCHAR})
+    </insert>
+
+</mapper>
